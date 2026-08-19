@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Layout from './app/Layout';
 import JointAuditWorkspace from './features/ja/components/JointAuditWorkspace';
 import ExecutionWorkspace from './features/ex/ExecutionWorkspace';
+import './index.css';
 
 function App() {
   const [activeCluster, setActiveCluster] = useState('ja');
