@@ -1,0 +1,85 @@
+.note-editor {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.note-editor form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note-editor .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-editor .form-group label {
+  font-weight: 500;
+  color: #333;
+}
+
+.note-editor .input-field,
+.note-editor .textarea-field {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.note-editor .input-field:focus,
+.note-editor .textarea-field:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+}
+
+.note-editor .textarea-field {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.note-editor .form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.note-editor .btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.note-editor .btn-primary {
+  background-color: #1976d2;
+  color: white;
+}
+
+.note-editor .btn-primary:hover:not(:disabled) {
+  background-color: #1565c0;
+}
+
+.note-editor .btn-secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.note-editor .btn-secondary:hover:not(:disabled) {
+  background-color: #d0d0d0;
+}
+
+.note-editor .error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 4px solid #c62828;
+}

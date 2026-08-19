@@ -1,0 +1,290 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-close:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.modal-body {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.confirmation-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.confirmation-summary h4 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.case-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-row .label {
+  font-weight: 500;
+  color: #666;
+  font-size: 14px;
+}
+
+.detail-row .value {
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.amount-box {
+  padding: 16px;
+  background-color: #f0f7ff;
+  border-left: 4px solid #1976d2;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.amount-box h5 {
+  margin: 0;
+  color: #1565c0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.amount-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount-display .currency {
+  font-size: 12px;
+  color: #999;
+  font-weight: 500;
+}
+
+.amount-display .value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1976d2;
+}
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(25, 118, 210, 0.2);
+  padding-top: 12px;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.breakdown-item span {
+  color: #666;
+}
+
+.breakdown-item strong {
+  color: #333;
+  font-size: 14px;
+}
+
+.findings-box {
+  padding: 12px;
+  background-color: #fff9c4;
+  border-left: 3px solid #fbc02d;
+  border-radius: 4px;
+}
+
+.findings-box h5 {
+  margin: 0 0 8px 0;
+  color: #f57f17;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.findings-box p {
+  margin: 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.confirmation-notice {
+  padding: 12px;
+  background-color: #fff3e0;
+  border-left: 3px solid #ff9800;
+  border-radius: 4px;
+}
+
+.confirmation-notice strong {
+  display: block;
+  color: #e65100;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.confirmation-notice p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.confirmation-checklist {
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.confirmation-checklist h5 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.confirmation-checklist ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.confirmation-checklist li {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.confirmation-checklist li:last-child {
+  margin-bottom: 0;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.btn-cancel-modal {
+  background-color: #f5f5f5;
+  color: #666;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel-modal:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.btn-cancel-modal:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-confirm-modal {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-confirm-modal:hover:not(:disabled) {
+  background-color: #1565c0;
+}
+
+.btn-confirm-modal:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
