@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import ResearchWorkspace from './ResearchWorkspace';
 import VotingWorkspace from './VotingWorkspace';
+import CaseIntelligence from './CaseIntelligence';
+import AuditorNominationPanel from './AuditorNominationPanel';
+import CaseOwnershipPanel from './CaseOwnershipPanel';
 
-const TABS = ['Overview', 'Research Notes', 'Voting'];
+const TABS = ['Overview', 'Case Intelligence', 'Research Notes', 'Voting', 'Auditor Nominations'];
 
 // Mock case data — in production this would be fetched by caseId
 const MOCK_CASE = {
@@ -77,56 +80,46 @@ export default function JACommitteeMemberWorkspace({ caseId, onBack }) {
 
       {/* Tab panels */}
       {activeTab === 'Overview' && (
-        <div className="grid gap-4 md:grid-cols-2">
-          {/* Mandate */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-600 mb-2">Committee Mandate</p>
-            <p className="text-sm text-slate-700 leading-relaxed">{auditCase.mandate}</p>
-          </div>
+        <div className="space-y-4">
+          <CaseOwnershipPanel caseRef={auditCase.caseRef} />
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* Mandate */}
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-600 mb-2">Committee Mandate</p>
+              <p className="text-sm text-slate-700 leading-relaxed">{auditCase.mandate}</p>
+            </div>
 
-          {/* Risk Criteria */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-600 mb-2">Risk Criteria Flagged</p>
-            <ul className="space-y-2">
-              {auditCase.riskCriteria.map((criterion, i) => (
-                <li key={i} className="flex gap-2 text-sm text-slate-700">
-                  <span className="mt-0.5 text-red-400 shrink-0">▸</span>
-                  {criterion}
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Risk Criteria */}
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-600 mb-2">Risk Criteria Flagged</p>
+              <ul className="space-y-2">
+                {auditCase.riskCriteria.map((criterion, i) => (
+                  <li key={i} className="flex gap-2 text-sm text-slate-700">
+                    <span className="mt-0.5 text-red-400 shrink-0">▸</span>
+                    {criterion}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Jurisdictions */}
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-violet-600 mb-2">Participating Jurisdictions</p>
-            <div className="flex flex-wrap gap-2">
-              {auditCase.jurisdictions.map((j) => (
-                <span key={j} className="rounded-full bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700">
-                  {j}
-                </span>
-              ))}
+            {/* Jurisdictions */}
+            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-violet-600 mb-2">Participating Jurisdictions</p>
+              <div className="flex flex-wrap gap-2">
+                {auditCase.jurisdictions.map((j) => (
+                  <span key={j} className="rounded-full bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700">
+                    {j}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      )}
 
-          {/* Auditor Nomination placeholder */}
-          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500 mb-2">Auditor Nomination</p>
-            <p className="text-sm text-slate-400 mb-3">Nominate an auditor for the joint audit team.</p>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Auditor ID or name"
-                className="flex-1 rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-blue-500"
-              />
-              <button
-                type="button"
-                className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-              >
-                Nominate
-              </button>
-            </div>
-          </div>
+      {activeTab === 'Case Intelligence' && (
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <CaseIntelligence />
         </div>
       )}
 
@@ -139,6 +132,12 @@ export default function JACommitteeMemberWorkspace({ caseId, onBack }) {
       {activeTab === 'Voting' && (
         <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
           <VotingWorkspace />
+        </div>
+      )}
+
+      {activeTab === 'Auditor Nominations' && (
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <AuditorNominationPanel isChairperson={false} />
         </div>
       )}
     </div>

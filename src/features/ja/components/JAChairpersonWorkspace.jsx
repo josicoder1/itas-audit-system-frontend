@@ -7,8 +7,11 @@ import ConsolidatedFindingsForm from './ConsolidatedFindingsForm';
 import HandoffTransferPanel from './HandoffTransferPanel';
 import ResearchWorkspace from './ResearchWorkspace';
 import VotingWorkspace from './VotingWorkspace';
+import CaseIntelligence from './CaseIntelligence';
+import AuditorNominationPanel from './AuditorNominationPanel';
+import CaseOwnershipPanel from './CaseOwnershipPanel';
 
-const TABS = ['Team Formation', 'Evidence Vault', 'Disputes', 'Research', 'Voting', 'Lock & Finalize', 'Handoff'];
+const TABS = ['Overview', 'Case Intelligence', 'Team Formation', 'Evidence Vault', 'Disputes', 'Research', 'Voting', 'Lock & Finalize', 'Handoff'];
 
 // Mock chairperson case — same as committee member but with extra controls
 const MOCK_CASE = {
@@ -104,7 +107,30 @@ export default function JAChairpersonWorkspace({ caseId, onBack }) {
       </div>
 
       {/* Tab panels */}
-      {activeTab === 'Team Formation' && <CommitteeBuilder />}
+      {activeTab === 'Overview' && (
+        <div className="space-y-4">
+          <CaseOwnershipPanel caseRef={MOCK_CASE.caseRef} />
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <CaseIntelligence />
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'Case Intelligence' && (
+        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <CaseIntelligence />
+        </div>
+      )}
+
+      {activeTab === 'Team Formation' && (
+        <div className="space-y-4">
+          <CommitteeBuilder />
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <AuditorNominationPanel isChairperson={true} />
+          </div>
+        </div>
+      )}
+
       {activeTab === 'Evidence Vault' && <SharedEvidenceVault />}
       {activeTab === 'Disputes' && <DisputeResolutionBoard />}
       {activeTab === 'Research' && (
